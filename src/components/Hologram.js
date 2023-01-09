@@ -3,6 +3,7 @@ import styled, { keyframes } from "styled-components";
 import useClickOutside from "../hooks/useClickOutside";
 import Fade from "react-reveal/Fade";
 import Typewriter from "typewriter-effect";
+import BG from "../images/background.jpg";
 
 export const Hologram = ({ onClickOut }) => {
   const ref = useRef();
@@ -12,6 +13,7 @@ export const Hologram = ({ onClickOut }) => {
     <Body ref={ref}>
       <Fade effect="fadeInDown">
         <Container>
+          <Image img={BG} />
           <TextDiv>
             <Typewriter
               onInit={(typewriter) => {
@@ -64,8 +66,9 @@ const Container = styled.div`
   height: 25vw;
   transform: rotate3d(0.5, -0.866, 0, 15deg) rotate(1deg);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
-
+  position: relative;
   backdrop-filter: blur(5.1px);
+
   :hover {
     transform: rotate3d(0, 0, 0, 0deg) rotate(0deg) perspective(75em);
     border-bottom: none;
@@ -75,6 +78,20 @@ const Container = styled.div`
     box-shadow: 0px 0px 146px 24px rgba(46, 206, 255, 0.12);
   }
   padding: 6vh;
+`;
+const Image = styled.div`
+  width: 45vw;
+  height: 25vw;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-image: url(${(props) => props.img});
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.2;
 `;
 const TextDiv = styled.div`
   width: 100%;

@@ -5,6 +5,8 @@ import { SquareBox } from "./models/squareBox";
 import styled from "styled-components";
 import { Hologram } from "./components/Hologram";
 import useClickOutside from "./hooks/useClickOutside";
+import HeadModel from "./models/HeadModel";
+import { Box, OrbitControls } from "@react-three/drei";
 
 function App() {
   const [boxActive, setBoxActive] = useState(false);
@@ -21,16 +23,21 @@ function App() {
         }}
         camera={{ fov: 45, near: 1, far: 20 }}
       >
-        <spotLight position={[0, 0, 5]} intensity={4} color="white" />
+        {/* <OrbitControls /> */}
+        <spotLight position={[5, 3, 3]} intensity={0.5} color="white" />
+        <spotLight position={[-5, 3, 3]} intensity={0.5} color="white" />
+        <spotLight position={[5, -5, 3]} intensity={0} color="white" />
+        <spotLight position={[-5, -5, 3]} intensity={0.2} color="white" />
         <Suspense fallback={null}>
           <SquareBox
-            position={[5, 0, -5]}
+            position={[3, 0, 0]}
             onClick={() => {
               setBoxActive(true);
             }}
             setBoxInPlace={(x) => setBoxInPlace(x)}
             boxActive={boxActive}
           />
+          <HeadModel />
         </Suspense>
       </Canvas>
       <UIBody>
