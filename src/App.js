@@ -7,10 +7,13 @@ import { Hologram } from "./components/Hologram";
 import useClickOutside from "./hooks/useClickOutside";
 import HeadModel from "./models/HeadModel";
 import { Box, OrbitControls } from "@react-three/drei";
+import { Sphere } from "./models/sphereModel";
 
 function App() {
   const [boxActive, setBoxActive] = useState(false);
   const [boxInPlace, setBoxInPlace] = useState(false);
+  const [sphereActive, setSphereActive] = useState(false);
+  const [sphereInPlace, setSphereInPlace] = useState(false);
 
   return (
     <div className="App">
@@ -38,6 +41,14 @@ function App() {
             boxActive={boxActive}
           />
           <HeadModel />
+          <Sphere
+            position={[-3, 0, 0]}
+            onClick={() => {
+              setSphereActive(true);
+            }}
+            setBoxInPlace={(x) => setSphereInPlace(x)}
+            boxActive={sphereActive}
+          />
         </Suspense>
       </Canvas>
       <UIBody>
@@ -45,6 +56,13 @@ function App() {
           <Hologram
             onClickOut={() => {
               setBoxActive(false);
+            }}
+          />
+        )}
+        {sphereInPlace && (
+          <Hologram
+            onClickOut={() => {
+              setSphereActive(false);
             }}
           />
         )}

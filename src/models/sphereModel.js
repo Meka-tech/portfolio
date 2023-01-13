@@ -4,10 +4,10 @@ import { useRef } from "react";
 import { useLoader } from "@react-three/fiber";
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
 
-export const SquareBox = ({ onClick, position, boxActive, setBoxInPlace }) => {
+export const Sphere = ({ onClick, position, boxActive, setBoxInPlace }) => {
   const group = useRef();
   // const { nodes, materials } = useGLTF("3dmodels/squareBox.glb");
-  const fbx = useLoader(FBXLoader, "/3Dmodels/squareBox.fbx");
+  const fbx = useLoader(FBXLoader, "/3Dmodels/sphere.fbx");
   useFrame((state) => {
     if (boxActive) {
       let addy = 0.04;
@@ -16,21 +16,22 @@ export const SquareBox = ({ onClick, position, boxActive, setBoxInPlace }) => {
         group.current.position.y -= addy;
         addy += 0.001;
       }
-      if (group.current.position.x > 0) {
-        group.current.position.x -= addx;
-        addx += 0.001;
+      if (group.current.position.x < 0) {
+        group.current.position.x += addx;
+        addx -= 0.001;
       }
       if (group.current.position.y <= -1 && group.current.position.x <= 1) {
         setBoxInPlace(true);
       }
       group.current.rotation.y += 0.01;
     }
+
     if (!boxActive) {
       if (group.current.position.y < position[1]) {
         group.current.position.y += 0.04;
       }
-      if (group.current.position.x < position[0]) {
-        group.current.position.x += 0.09;
+      if (group.current.position.x > position[0]) {
+        group.current.position.x -= 0.09;
       }
       if (group.current.position.y <= -1 && group.current.position.x <= 1) {
         setBoxInPlace(false);
@@ -41,7 +42,7 @@ export const SquareBox = ({ onClick, position, boxActive, setBoxInPlace }) => {
     <group
       ref={group}
       dispose={null}
-      scale={0.0015}
+      scale={0.002}
       onClick={onClick}
       position={position}
     >
@@ -62,17 +63,9 @@ export const SquareBox = ({ onClick, position, boxActive, setBoxInPlace }) => {
               color="dodgerblue"
             />
           )}
-          {/* <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.Square.geometry}
-            material={materials["Material.002"]}
-          /> */}
           <primitive castShadow receiveShadow object={fbx} />
         </PresentationControls>
       </Float>
     </group>
   );
 };
-
-useGLTF.preload("3dmodels/squareBox.glb");
