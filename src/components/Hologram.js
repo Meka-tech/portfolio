@@ -2,10 +2,9 @@ import React, { useRef } from "react";
 import styled, { keyframes } from "styled-components";
 import useClickOutside from "../hooks/useClickOutside";
 import Fade from "react-reveal/Fade";
-import Typewriter from "typewriter-effect";
 import BG from "../images/background.jpg";
 
-export const Hologram = ({ onClickOut }) => {
+export const Hologram = ({ onClickOut, child }) => {
   const ref = useRef();
   useClickOutside(ref, onClickOut);
 
@@ -14,34 +13,7 @@ export const Hologram = ({ onClickOut }) => {
       <Fade effect="fadeInDown">
         <Container>
           <Image img={BG} />
-          <TextDiv>
-            <Typewriter
-              onInit={(typewriter) => {
-                typewriter
-                  .changeDelay(100)
-                  .typeString("This is <strong>Batman</strong")
-                  .callFunction(() => {
-                    console.log("String typed out!");
-                  })
-                  .pauseFor(300)
-                  .deleteChars(6)
-                  .typeString("Nnaemeka and this is my Por")
-                  .pauseFor(100)
-                  .deleteChars(3)
-                  .typeString("secret project.")
-                  .pauseFor(200)
-                  .typeString(
-                    "Through sorcery and magic, I combined 3D and 2D elem"
-                  )
-                  .pauseFor(300)
-                  .changeDeleteSpeed(5)
-                  .deleteAll()
-                  .typeString("I've said too much")
-                  .deleteAll()
-                  .start();
-              }}
-            />
-          </TextDiv>
+          <TextDiv>{child}</TextDiv>
         </Container>
         <Triangle />
       </Fade>
@@ -77,7 +49,7 @@ const Container = styled.div`
     -moz-box-shadow: 0px 0px 146px 24px rgba(46, 206, 255, 0.12);
     box-shadow: 0px 0px 146px 24px rgba(46, 206, 255, 0.12);
   }
-  padding: 6vh;
+  padding: 4vh;
 `;
 const Image = styled.div`
   width: 45vw;
@@ -99,8 +71,9 @@ const TextDiv = styled.div`
   background-color: rgba(30, 144, 255, 0);
   border-radius: 10px;
   color: rgba(30, 144, 255, 0.8);
-  font-size: 20px;
-  text-align: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 const Triangle = styled.div`
   width: 45vw;

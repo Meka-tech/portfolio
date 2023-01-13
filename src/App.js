@@ -8,6 +8,7 @@ import useClickOutside from "./hooks/useClickOutside";
 import HeadModel from "./models/HeadModel";
 import { Box, OrbitControls } from "@react-three/drei";
 import { Sphere } from "./models/sphereModel";
+import { Nav } from "./components/nav";
 
 function App() {
   const [boxActive, setBoxActive] = useState(false);
@@ -57,6 +58,7 @@ function App() {
             onClickOut={() => {
               setBoxActive(false);
             }}
+            child={<Nav />}
           />
         )}
         {sphereInPlace && (
