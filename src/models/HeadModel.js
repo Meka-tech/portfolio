@@ -33,8 +33,8 @@ export default function HeadModel(props) {
   const { x, y } = useMouse();
 
   useFrame((state) => {
-    group.current.rotation.y = (x / 150) * 0.2 - 0.77;
-    group.current.rotation.x = (y / 150) * 0.2 - 0.77;
+    group.current.rotation.y = (x / 150) * 0.2 - 0.9;
+    group.current.rotation.x = (y / 150) * 0.2 - 0.6;
   });
 
   /////
@@ -44,7 +44,7 @@ export default function HeadModel(props) {
       {...props}
       dispose={null}
       position={[0, -0.5, 0]}
-      rotation={[-0.1, 0, 0]}
+      rotation={[0, 0, 0]}
       scale={0.0035}
     >
       {/* <pointLight intensity={2} position={[0, -4, -10]} /> */}

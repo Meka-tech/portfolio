@@ -45,6 +45,7 @@ export const Sphere = ({ onClick, position, boxActive, setBoxInPlace }) => {
       scale={0.002}
       onClick={onClick}
       position={position}
+    
     >
       <Float
         speed={!boxActive ? 4 : 1} // Animation speed, defaults to 1
