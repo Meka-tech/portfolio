@@ -1,25 +1,62 @@
 import styled from "styled-components";
 import BG from "../../images/texture.png";
+import Typewriter from "typewriter-effect";
+import { useState, useEffect } from "react";
+import { Projects } from "./projects";
 
 export const Nav = () => {
+  const NavigationComponent = () => {
+    return (
+      <>
+        {" "}
+        <NavItem>
+          <Image img={BG} />
+          {/* <h1>BIO</h1> */}
+          <Typewriter
+            onInit={(typewriter) => {
+              typewriter.changeDelay(200).typeString("BIO").start();
+            }}
+          />
+        </NavItem>
+        <NavItem>
+          <Image img={BG} />
+          {/* <h1>Skills</h1> */}
+          <Typewriter
+            onInit={(typewriter) => {
+              typewriter.changeDelay(200).typeString("Skills").start();
+            }}
+          />
+        </NavItem>
+        <NavItem onClick={() => setShowCase(Projects)}>
+          <Image img={BG} />
+          {/* <h1>Projects</h1> */}
+          <Typewriter
+            onInit={(typewriter) => {
+              typewriter.changeDelay(200).typeString("Projects").start();
+            }}
+          />
+        </NavItem>
+        <NavItem>
+          <Image img={BG} />
+          {/* <h1>Contact</h1> */}
+          <Typewriter
+            onInit={(typewriter) => {
+              typewriter.changeDelay(200).typeString("Contact").start();
+            }}
+          />
+        </NavItem>
+      </>
+    );
+  };
+  const [showCase, setShowCase] = useState(NavigationComponent);
+  useEffect(() => {
+    //run animation
+    return () => {};
+  }, [showCase]);
+
   return (
     <Container>
-      <NavItem>
-        <Image img={BG} />
-        <h1>BIO</h1>
-      </NavItem>
-      <NavItem>
-        <Image img={BG} />
-        <h1>Skills</h1>
-      </NavItem>
-      <NavItem>
-        <Image img={BG} />
-        <h1>Projects</h1>
-      </NavItem>
-      <NavItem>
-        <Image img={BG} />
-        <h1>Contact</h1>
-      </NavItem>
+      <Body>{showCase}</Body>{" "}
     </Container>
   );
 };
@@ -27,6 +64,7 @@ export const Nav = () => {
 const Container = styled.div`
   width: 100%;
 `;
+const Body = styled.div``;
 const Image = styled.div`
   width: 100%;
   height: 100%;
@@ -59,6 +97,8 @@ const NavItem = styled.div`
   transform: perspective(900px) rotateX(60deg) scale(0.9);
   transition: 0.5s ease all;
   margin-bottom: 1.5rem;
+  font-size: 20px;
+  font-weight: 500;
 
   h1 {
     margin: 0;

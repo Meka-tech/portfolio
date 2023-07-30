@@ -35,11 +35,12 @@ const Container = styled.div`
   background-color: rgba(30, 144, 255, 0.1);
   box-sizing: border-box;
   width: 45vw;
-  height: 25vw;
+  height: 18vw;
   transform: rotate3d(0.5, -0.866, 0, 15deg) rotate(1deg);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   position: relative;
   backdrop-filter: blur(5.1px);
+  overflow: hidden;
 
   :hover {
     transform: rotate3d(0, 0, 0, 0deg) rotate(0deg) perspective(75em);
@@ -53,7 +54,7 @@ const Container = styled.div`
 `;
 const Image = styled.div`
   width: 45vw;
-  height: 25vw;
+  height: 18vw;
   position: absolute;
   background-repeat: no-repeat;
   background-position: center center;
@@ -63,7 +64,7 @@ const Image = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  opacity: 0.2;
+  opacity: 0.15;
 `;
 const TextDiv = styled.div`
   width: 100%;
@@ -77,7 +78,7 @@ const TextDiv = styled.div`
 `;
 const Triangle = styled.div`
   width: 45vw;
-  height: 6vh;
+  height: 10vh;
   background-image: linear-gradient(
       to bottom right,
       transparent 50%,

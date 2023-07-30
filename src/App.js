@@ -9,6 +9,7 @@ import HeadModel from "./models/HeadModel";
 import { Box, OrbitControls } from "@react-three/drei";
 import { Sphere } from "./models/sphereModel";
 import { Nav } from "./components/nav";
+import { Intro } from "./components/nav/intro";
 
 function App() {
   const [boxActive, setBoxActive] = useState(false);
