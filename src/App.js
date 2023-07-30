@@ -10,6 +10,7 @@ import { Box, OrbitControls } from "@react-three/drei";
 import { Sphere } from "./models/sphereModel";
 import { Nav } from "./components/nav";
 import { Intro } from "./components/nav/intro";
+import { HologramProvider } from "./Context/context";
 
 function App() {
   const [boxActive, setBoxActive] = useState(false);
@@ -18,59 +19,64 @@ function App() {
   const [sphereInPlace, setSphereInPlace] = useState(false);
 
   return (
-    <div className="App">
-      <Canvas
-        style={{
-          backgroundColor: "rgb(10,10,10)",
-          height: "100vh",
-          position: "absolute",
-          zIndex: 100
-        }}
-        camera={{ fov: 45, near: 1, far: 20 }}
-      >
-        {/* <OrbitControls /> */}
-        <spotLight position={[5, 3, 3]} intensity={0.5} color="white" />
-        <spotLight position={[-5, 3, 3]} intensity={0.5} color="white" />
-        <spotLight position={[5, -5, 3]} intensity={0} color="white" />
-        <spotLight position={[-5, -5, 3]} intensity={0.2} color="white" />
-        <Suspense fallback={null}>
-          <SquareBox
-            position={[3, 0, 0]}
-            onClick={() => {
-              setBoxActive(true);
-            }}
-            setBoxInPlace={(x) => setBoxInPlace(x)}
-            boxActive={boxActive}
-          />
-          <HeadModel />
-          <Sphere
-            position={[-3, 0, 0]}
-            onClick={() => {
-              setSphereActive(true);
-            }}
-            setBoxInPlace={(x) => setSphereInPlace(x)}
-            boxActive={sphereActive}
-          />
-        </Suspense>
-      </Canvas>
-      <UIBody>
-        {boxInPlace && (
-          <Hologram
-            onClickOut={() => {
-              setBoxActive(false);
-            }}
-            child={<Nav />}
-          />
-        )}
-        {sphereInPlace && (
-          <Hologram
-            onClickOut={() => {
-              setSphereActive(false);
-            }}
-          />
-        )}
-      </UIBody>
-    </div>
+    <HologramProvider className="App">
+      <div className="laptopView">
+        <Canvas
+          style={{
+            backgroundColor: "rgb(10,10,10)",
+            height: "100vh",
+            position: "absolute",
+            zIndex: 100
+          }}
+          camera={{ fov: 45, near: 1, far: 20 }}
+        >
+          {/* <OrbitControls /> */}
+          <spotLight position={[5, 3, 3]} intensity={0.5} color="white" />
+          <spotLight position={[-5, 3, 3]} intensity={0.5} color="white" />
+          <spotLight position={[5, -5, 3]} intensity={0} color="white" />
+          <spotLight position={[-5, -5, 3]} intensity={0.2} color="white" />
+          <Suspense fallback={null}>
+            <SquareBox
+              position={[3, 0, 0]}
+              onClick={() => {
+                setBoxActive(true);
+              }}
+              setBoxInPlace={(x) => setBoxInPlace(x)}
+              boxActive={boxActive}
+            />
+            <HeadModel />
+            <Sphere
+              position={[-3, 0, 0]}
+              onClick={() => {
+                setSphereActive(true);
+              }}
+              setBoxInPlace={(x) => setSphereInPlace(x)}
+              boxActive={sphereActive}
+            />
+          </Suspense>
+        </Canvas>
+        <UIBody>
+          {boxInPlace && (
+            <Hologram
+              onClickOut={() => {
+                setBoxActive(false);
+              }}
+              child={<Nav />}
+            />
+          )}
+          {sphereInPlace && (
+            <Hologram
+              onClickOut={() => {
+                setSphereActive(false);
+              }}
+            />
+          )}
+        </UIBody>
+      </div>
+      <div className="mobileView">
+        <h2>Not Available for Mobile at the moment</h2>
+      </div>
+    </HologramProvider>
   );
 }
 

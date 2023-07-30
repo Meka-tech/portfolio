@@ -3,7 +3,7 @@ import BG from "../../images/texture.png";
 import Typewriter from "typewriter-effect";
 import { useState, useEffect } from "react";
 import { Projects } from "./projects";
-
+import { useHologram, useTransition } from "../../Context/context";
 export const Nav = () => {
   const NavigationComponent = () => {
     return (
@@ -27,7 +27,11 @@ export const Nav = () => {
             }}
           />
         </NavItem>
-        <NavItem onClick={() => setShowCase(Projects)}>
+        <NavItem
+          onClick={() => {
+            OpenProjects();
+          }}
+        >
           <Image img={BG} />
           {/* <h1>Projects</h1> */}
           <Typewriter
@@ -48,21 +52,31 @@ export const Nav = () => {
       </>
     );
   };
-  const [showCase, setShowCase] = useState(NavigationComponent);
-  useEffect(() => {
-    //run animation
-    return () => {};
-  }, [showCase]);
-
+  const [showCase, setShowCase] = useState("Nav");
+  const transition = useTransition();
+  const Hologram = useHologram();
+  const OpenProjects = () => {
+    transition();
+    setTimeout(() => setShowCase("Projects"), [500]);
+  };
+  const GoBack = () => {
+    transition();
+    setTimeout(() => setShowCase("Nav"), [500]);
+  };
   return (
-    <Container>
-      <Body>{showCase}</Body>{" "}
+    <Container Hologram={Hologram}>
+      <Body>
+        {showCase === "Projects" && <Projects goBack={GoBack} />}
+        {showCase === "Nav" && <NavigationComponent />}
+      </Body>
     </Container>
   );
 };
 
 const Container = styled.div`
   width: 100%;
+  transform: ${(props) => (props.Hologram ? `scaleX(0.01)` : `scaleX(1)`)};
+  transition: all 0.4s;
 `;
 const Body = styled.div``;
 const Image = styled.div`
@@ -96,7 +110,7 @@ const NavItem = styled.div`
   border-radius: 8px;
   transform: perspective(900px) rotateX(60deg) scale(0.9);
   transition: 0.5s ease all;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   font-size: 20px;
   font-weight: 500;
   color: white;
