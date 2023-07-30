@@ -3,13 +3,22 @@ import BG from "../../images/texture.png";
 import Typewriter from "typewriter-effect";
 import { useState, useEffect } from "react";
 import { Projects } from "./projects";
-import { useHologram, useTransition } from "../../Context/context";
+import {
+  useHologram,
+  useNavOption,
+  useTransition
+} from "../../Context/context";
 export const Nav = () => {
   const NavigationComponent = () => {
     return (
       <>
         {" "}
-        <NavItem>
+        <NavItem
+          onClick={() => {
+            transition();
+            ShowBio();
+          }}
+        >
           <Image img={BG} />
           {/* <h1>BIO</h1> */}
           <Typewriter
@@ -52,22 +61,28 @@ export const Nav = () => {
       </>
     );
   };
-  const [showCase, setShowCase] = useState("Nav");
   const transition = useTransition();
   const Hologram = useHologram();
+  const { ToggleNavOption, navOption } = useNavOption();
+
   const OpenProjects = () => {
     transition();
-    setTimeout(() => setShowCase("Projects"), [500]);
+    setTimeout(() => ToggleNavOption("Projects"), [500]);
+  };
+  const ShowBio = () => {
+    transition();
+    setTimeout(() => ToggleNavOption("Bio"), [500]);
   };
   const GoBack = () => {
     transition();
-    setTimeout(() => setShowCase("Nav"), [500]);
+    setTimeout(() => ToggleNavOption("Nav"), [500]);
   };
+
   return (
     <Container Hologram={Hologram}>
       <Body>
-        {showCase === "Projects" && <Projects goBack={GoBack} />}
-        {showCase === "Nav" && <NavigationComponent />}
+        {navOption === "Projects" && <Projects goBack={GoBack} />}
+        {navOption === "Nav" && <NavigationComponent />}
       </Body>
     </Container>
   );

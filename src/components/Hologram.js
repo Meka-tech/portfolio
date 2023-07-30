@@ -3,12 +3,19 @@ import styled, { keyframes } from "styled-components";
 import useClickOutside from "../hooks/useClickOutside";
 import Fade from "react-reveal/Fade";
 import BG from "../images/background.jpg";
-import { useHologram, useTransition } from "../Context/context";
+import { useHologram, useNavOption, useTransition } from "../Context/context";
 
 export const Hologram = ({ onClickOut, child }) => {
   const ref = useRef();
   useClickOutside(ref, onClickOut);
 
+  const { ToggleNavOption, navOption } = useNavOption();
+
+  useEffect(() => {
+    if (navOption === "Bio") {
+      onClickOut();
+    }
+  }, [navOption]);
   const Hologram = useHologram();
 
   return (
