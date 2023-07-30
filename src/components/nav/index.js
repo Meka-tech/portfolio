@@ -23,7 +23,7 @@ export const Nav = () => {
           {/* <h1>Skills</h1> */}
           <Typewriter
             onInit={(typewriter) => {
-              typewriter.changeDelay(200).typeString("Skills").start();
+              typewriter.changeDelay(200).typeString("SKILLS").start();
             }}
           />
         </NavItem>
@@ -32,7 +32,7 @@ export const Nav = () => {
           {/* <h1>Projects</h1> */}
           <Typewriter
             onInit={(typewriter) => {
-              typewriter.changeDelay(200).typeString("Projects").start();
+              typewriter.changeDelay(200).typeString("PROJECTS").start();
             }}
           />
         </NavItem>
@@ -41,7 +41,7 @@ export const Nav = () => {
           {/* <h1>Contact</h1> */}
           <Typewriter
             onInit={(typewriter) => {
-              typewriter.changeDelay(200).typeString("Contact").start();
+              typewriter.changeDelay(200).typeString("CONTACT").start();
             }}
           />
         </NavItem>
@@ -99,6 +99,7 @@ const NavItem = styled.div`
   margin-bottom: 1.5rem;
   font-size: 20px;
   font-weight: 500;
+  color: white;
 
   h1 {
     margin: 0;

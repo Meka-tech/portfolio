@@ -78,7 +78,7 @@ const TextDiv = styled.div`
 `;
 const Triangle = styled.div`
   width: 45vw;
-  height: 10vh;
+  height: 12vh;
   background-image: linear-gradient(
       to bottom right,
       transparent 50%,

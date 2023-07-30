@@ -21,7 +21,7 @@ function App() {
     <div className="App">
       <Canvas
         style={{
-          backgroundColor: "white",
+          backgroundColor: "rgb(10,10,10)",
           height: "100vh",
           position: "absolute",
           zIndex: 100
