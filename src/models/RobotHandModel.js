@@ -58,7 +58,7 @@ export default function RobotHandModel({ setHandInPlace, handInPlace }) {
         floatIntensity={2}
         floatingRange={[5, 25]}
       >
-        {handInPlace && <SpotLight intensity={5} color="#33e5bc" scale={500} />}
+        {handInPlace && <SpotLight intensity={5} color="#33e5bc" scale={300} />}
 
         <primitive castShadow receiveShadow object={fbx} />
       </Float>

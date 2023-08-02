@@ -21,7 +21,11 @@ const Container = styled.div`
   top: 10%;
   margin-left: -8%;
   :hover {
-    border-top: 1px solid rgba(20, 90, 74, 0.5);
+    border-top: 2px solid rgba(20, 90, 74, 0.5);
     border-bottom: none;
+    /* -webkit-box-shadow: 0px 0px 146px 24px rgba(20, 90, 74, 0.1);
+    -moz-box-shadow: 0px 0px 146px 24px rgba(20, 90, 74, 0.1);
+    box-shadow: 0px 0px 146px 24px rgba(20, 90, 74, 0.1);
+    background-color: rgba(20, 90, 74, 0.1); */
   }
 `;

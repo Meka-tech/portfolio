@@ -12,6 +12,7 @@ import RobotHandModel from "./models/RobotHandModel";
 import { useNavOption } from "./Context/context";
 import { Bio } from "./components/nav/bio";
 import { useEffect } from "react";
+import Earth from "./models/HologramEarth";
 
 export const MainCanvas = () => {
   const [boxActive, setBoxActive] = useState(false);
@@ -71,6 +72,7 @@ export const MainCanvas = () => {
             setBoxInPlace={(x) => setSphereInPlace(x)}
             boxActive={sphereActive}
           />
+          {handInPlace && <Earth />}
         </Suspense>
       </Canvas>
       <UIBody>
