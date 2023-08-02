@@ -2,11 +2,19 @@ import React from "react";
 import styled from "styled-components";
 import useClickOutside from "../../../hooks/useClickOutside";
 import { useRef } from "react";
+import { LocationPin } from "./locationPin";
+import { device } from "../../../deviceStyle";
 
 export const Bio = ({ onClickOut }) => {
   const ref = useRef();
   useClickOutside(ref, onClickOut);
-  return <Container ref={ref}></Container>;
+  return (
+    <Container ref={ref}>
+      <Body>
+        <LocationPin />
+      </Body>
+    </Container>
+  );
 };
 
 const Container = styled.div`
@@ -28,4 +36,13 @@ const Container = styled.div`
     box-shadow: 0px 0px 146px 24px rgba(20, 90, 74, 0.1);
     background-color: rgba(20, 90, 74, 0.1); */
   }
+  @media (min-width: 1600px) {
+    width: 65rem;
+    height: 50rem;
+  }
+`;
+
+const Body = styled.div`
+  position: relative;
+  transform: rotate(-320deg);
 `;
