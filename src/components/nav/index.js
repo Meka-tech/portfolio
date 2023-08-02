@@ -8,6 +8,8 @@ import {
   useNavOption,
   useTransition
 } from "../../Context/context";
+import gsap from "gsap";
+import { useFrame } from "@react-three/fiber";
 export const Nav = () => {
   const NavigationComponent = () => {
     return (

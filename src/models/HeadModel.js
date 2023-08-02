@@ -47,13 +47,6 @@ export default function HeadModel(props) {
       rotation={[0, 0, 0]}
       scale={0.0035}
     >
-      {/* <pointLight intensity={2} position={[0, -4, -10]} /> */}
-      {/* <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Cube.geometry}
-        material={materials["White, Blue , Silver"]}
-      /> */}
       <Float
         speed={3}
         rotationIntensity={0}
