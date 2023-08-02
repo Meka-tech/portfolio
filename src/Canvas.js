@@ -10,14 +10,25 @@ import { Sphere } from "./models/sphereModel";
 import { Nav } from "./components/nav";
 import RobotHandModel from "./models/RobotHandModel";
 import { useNavOption } from "./Context/context";
+import { Bio } from "./components/nav/bio";
+import { useEffect } from "react";
 
 export const MainCanvas = () => {
   const [boxActive, setBoxActive] = useState(false);
   const [boxInPlace, setBoxInPlace] = useState(false);
   const [sphereActive, setSphereActive] = useState(false);
   const [sphereInPlace, setSphereInPlace] = useState(false);
+  const [handInPlace, setHandInPlace] = useState(false);
   const cameraRef = useRef();
   const { ToggleNavOption, navOption } = useNavOption();
+  useEffect(() => {
+    if (boxActive) {
+      setSphereActive(false);
+    }
+    if (sphereActive) {
+      setBoxActive(false);
+    }
+  }, [boxActive, sphereActive]);
 
   return (
     <Container>
@@ -36,7 +47,11 @@ export const MainCanvas = () => {
         <spotLight position={[5, -5, 3]} intensity={0} color="white" />
         <spotLight position={[-5, -5, 3]} intensity={0.2} color="white" />
         <Suspense fallback={null}>
-          <RobotHandModel position={[0, 0, 0]} cameraRef={cameraRef} />
+          <RobotHandModel
+            position={[0, 0, 0]}
+            setHandInPlace={setHandInPlace}
+            handInPlace={handInPlace}
+          />
           <SquareBox
             position={[3, 0, 0]}
             onClick={() => {
@@ -71,6 +86,14 @@ export const MainCanvas = () => {
           <Hologram
             onClickOut={() => {
               setSphereActive(false);
+            }}
+          />
+        )}
+        {handInPlace && (
+          <Bio
+            onClickOut={() => {
+              setBoxActive(true);
+              ToggleNavOption("Nav");
             }}
           />
         )}

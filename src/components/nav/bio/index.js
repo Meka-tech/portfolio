@@ -1,0 +1,27 @@
+import React from "react";
+import styled from "styled-components";
+import useClickOutside from "../../../hooks/useClickOutside";
+import { useRef } from "react";
+
+export const Bio = ({ onClickOut }) => {
+  const ref = useRef();
+  useClickOutside(ref, onClickOut);
+  return <Container ref={ref}></Container>;
+};
+
+const Container = styled.div`
+  background-color: rgba(20, 90, 74, 0.005);
+  color: rgba(255, 255, 255, 0.2);
+  z-index: 1000;
+  width: 50rem;
+  height: 30rem;
+  border-radius: 100rem 100rem 0 0;
+  transform: rotate(320deg);
+  position: absolute;
+  top: 10%;
+  margin-left: -8%;
+  :hover {
+    border-top: 1px solid rgba(20, 90, 74, 0.5);
+    border-bottom: none;
+  }
+`;

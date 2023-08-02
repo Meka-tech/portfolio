@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Float, useGLTF } from "@react-three/drei";
+import { Float, SpotLight, useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useLoader } from "@react-three/fiber";
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
@@ -7,7 +7,7 @@ import { useNavOption } from "../Context/context";
 import { Vector3 } from "three";
 import { gsap } from "gsap";
 
-export default function RobotHandModel({ cameraRef }) {
+export default function RobotHandModel({ setHandInPlace, handInPlace }) {
   const group = useRef();
   const fbx = useLoader(FBXLoader, "/3Dmodels/RobotHand.fbx");
 
@@ -26,6 +26,9 @@ export default function RobotHandModel({ cameraRef }) {
         group.current.position.z -= addz;
         addz += 0.005;
       }
+      if (group.current.position.z < 2.3) {
+        setHandInPlace(true);
+      }
     } else {
       gsap.to(state.camera.rotation, {
         x: 0,
@@ -36,6 +39,7 @@ export default function RobotHandModel({ cameraRef }) {
       if (group.current.position.z < 3) {
         group.current.position.z += addz;
         addz += 0.005;
+        setHandInPlace(false);
       }
     }
   });
@@ -54,6 +58,8 @@ export default function RobotHandModel({ cameraRef }) {
         floatIntensity={2}
         floatingRange={[5, 25]}
       >
+        {handInPlace && <SpotLight intensity={5} color="#33e5bc" scale={500} />}
+
         <primitive castShadow receiveShadow object={fbx} />
       </Float>
     </group>
