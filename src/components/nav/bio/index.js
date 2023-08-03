@@ -4,13 +4,18 @@ import useClickOutside from "../../../hooks/useClickOutside";
 import { useRef } from "react";
 import { LocationPin } from "./locationPin";
 import { device } from "../../../deviceStyle";
+import BG from "../../../images/BioBg.png";
+import { Profile } from "./profile";
 
 export const Bio = ({ onClickOut }) => {
   const ref = useRef();
   useClickOutside(ref, onClickOut);
   return (
     <Container ref={ref}>
+      <Image img={BG} />
       <Body>
+        <Glow />
+        <Profile />
         <LocationPin />
       </Body>
     </Container>
@@ -21,28 +26,44 @@ const Container = styled.div`
   background-color: rgba(20, 90, 74, 0.005);
   color: rgba(255, 255, 255, 0.2);
   z-index: 1000;
-  width: 50rem;
-  height: 30rem;
-  border-radius: 100rem 100rem 0 0;
-  transform: rotate(320deg);
+  width: 40vw;
+  height: 40vw;
   position: absolute;
-  top: 10%;
-  margin-left: -8%;
-  :hover {
-    border-top: 2px solid rgba(20, 90, 74, 0.5);
-    border-bottom: none;
-    /* -webkit-box-shadow: 0px 0px 146px 24px rgba(20, 90, 74, 0.1);
-    -moz-box-shadow: 0px 0px 146px 24px rgba(20, 90, 74, 0.1);
-    box-shadow: 0px 0px 146px 24px rgba(20, 90, 74, 0.1);
-    background-color: rgba(20, 90, 74, 0.1); */
-  }
-  @media (min-width: 1600px) {
-    width: 65rem;
-    height: 50rem;
-  }
+  font-family: "Space Mono", sans-serif;
 `;
 
 const Body = styled.div`
   position: relative;
-  transform: rotate(-320deg);
+`;
+const Image = styled.div`
+  width: 40vw;
+  height: 40vw;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-image: url(${(props) => props.img});
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.3;
+  transition: all ease 0.1s;
+  :hover {
+    opacity: 1;
+  }
+`;
+
+const Glow = styled.div`
+  position: absolute;
+  width: 15vw;
+  height: 15vw;
+  background-color: red;
+  border-radius: 50%;
+  top: 12.5vw;
+  left: 11.8vw;
+  background-color: rgba(20, 90, 74, 0.25);
+  box-shadow: 0 0 60px 30px rgba(20, 90, 74, 0.12),
+    0 0 100px 60px rgba(20, 90, 74, 0.12), 0 0 140px 90px rgba(20, 90, 74, 0.12);
+  opacity: 0.5;
 `;

@@ -26,8 +26,8 @@ export default function Earth() {
   return (
     <group
       dispose={null}
-      position={[0.15, -0.03, 3.9]}
-      scale={0.0008}
+      position={[0.18, -0.03, 3.9]}
+      scale={0.00075}
       ref={group}
     >
       <PresentationControls>
