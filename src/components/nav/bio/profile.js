@@ -148,7 +148,7 @@ const Container = styled.div`
   width: 10vw;
   left: 11vw;
   top: 0.5vw;
-  transition: all ease-out 0.5s;
+  transition: all ease-out 0.2s;
   :hover {
     transform: scale(2);
     top: 5vw;
@@ -270,7 +270,7 @@ const Hobbies = styled.div`
   width: 6.2vw;
   height: 4vw;
   background-color: rgba(20, 90, 74, 0.4);
-  transition: all ease-out 0.3s;
+  transition: all ease-in 0.35s;
   cursor: pointer;
   position: absolute;
   right: 0.5vw;
@@ -293,7 +293,7 @@ const Hobbies = styled.div`
   }
   :hover {
     border: none;
-    transform: scale(2.5);
+    transform: scale(2.1);
     background-color: rgba(20, 90, 74, 0.9);
     height: fit-content;
     z-index: 100;

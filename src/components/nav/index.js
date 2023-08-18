@@ -29,9 +29,14 @@ export const Nav = () => {
             }}
           />
         </NavItem>
-        <NavItem>
+        <NavItem
+          onClick={() => {
+            transition();
+            OpenSkills();
+          }}
+        >
           <Image img={BG} />
-          {/* <h1>Skills</h1> */}
+
           <Typewriter
             onInit={(typewriter) => {
               typewriter.changeDelay(200).typeString("SKILLS").start();
@@ -74,6 +79,10 @@ export const Nav = () => {
   const ShowBio = () => {
     transition();
     setTimeout(() => ToggleNavOption("Bio"), [500]);
+  };
+  const OpenSkills = () => {
+    transition();
+    setTimeout(() => ToggleNavOption("Skills"), [500]);
   };
   const GoBack = () => {
     transition();
@@ -121,13 +130,13 @@ const NavItem = styled.div`
   background-color: rgba(150, 222, 209, 0.05);
   backdrop-filter: blur(5.1px);
   cursor: pointer;
-  padding: 0.8rem;
+  padding: 0.4vw;
   transition: 0.2s ease-in-out;
   text-align: left;
   border-radius: 8px;
   transform: perspective(900px) rotateX(60deg) scale(0.9);
   transition: 0.5s ease all;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5vw;
   font-size: 20px;
   font-weight: 500;
   color: white;

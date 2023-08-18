@@ -5,7 +5,7 @@ import { SquareBox } from "./models/squareBox";
 import styled from "styled-components";
 import { Hologram } from "./components/Hologram";
 import HeadModel from "./models/HeadModel";
-import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import { OrbitControls, PerspectiveCamera, SpotLight } from "@react-three/drei";
 import { Sphere } from "./models/sphereModel";
 import { Nav } from "./components/nav";
 import RobotHandModel from "./models/RobotHandModel";
@@ -13,6 +13,9 @@ import { useNavOption } from "./Context/context";
 import { Bio } from "./components/nav/bio";
 import { useEffect } from "react";
 import Earth from "./models/HologramEarth";
+import { ControllerCube } from "./models/WebController";
+import { Skill2D } from "./components/nav/skills";
+import { SkillModel } from "./models/Skill3D/SkillModel";
 
 export const MainCanvas = () => {
   const [boxActive, setBoxActive] = useState(false);
@@ -20,6 +23,8 @@ export const MainCanvas = () => {
   const [sphereActive, setSphereActive] = useState(false);
   const [sphereInPlace, setSphereInPlace] = useState(false);
   const [handInPlace, setHandInPlace] = useState(false);
+  const [cameraTurnToSkills, setCameraTurnToSkills] = useState(false);
+  const [skillsInView, setSkillsInView] = useState(false);
   const cameraRef = useRef();
   const { ToggleNavOption, navOption } = useNavOption();
   useEffect(() => {
@@ -73,6 +78,16 @@ export const MainCanvas = () => {
             boxActive={sphereActive}
           />
           {handInPlace && <Earth />}
+          <ControllerCube setCameraTurnToSkills={setCameraTurnToSkills} />
+
+          <SkillModel
+            onClickOut={() => {
+              setBoxActive(true);
+              ToggleNavOption("Nav");
+            }}
+            faceSkills={cameraTurnToSkills}
+            setSkillsInView={setSkillsInView}
+          />
         </Suspense>
       </Canvas>
       <UIBody>
@@ -93,6 +108,16 @@ export const MainCanvas = () => {
         )}
         {handInPlace && (
           <Bio
+            onClickOut={() => {
+              setBoxActive(true);
+              ToggleNavOption("Nav");
+            }}
+          />
+        )}
+
+        {skillsInView && (
+          <Skill2D
+            skillsInView={skillsInView}
             onClickOut={() => {
               setBoxActive(true);
               ToggleNavOption("Nav");

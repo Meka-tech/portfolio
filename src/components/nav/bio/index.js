@@ -6,6 +6,8 @@ import { LocationPin } from "./locationPin";
 import { device } from "../../../deviceStyle";
 import BG from "../../../images/BioBg.png";
 import { Profile } from "./profile";
+import { SpinningGrid } from "./SpinningGrid";
+import { BioLoader } from "./BioLoader";
 
 export const Bio = ({ onClickOut }) => {
   const ref = useRef();
@@ -14,9 +16,11 @@ export const Bio = ({ onClickOut }) => {
     <Container ref={ref}>
       <Image img={BG} />
       <Body>
+        <SpinningGrid />
         <Glow />
         <Profile />
         <LocationPin />
+        <BioLoader />
       </Body>
     </Container>
   );

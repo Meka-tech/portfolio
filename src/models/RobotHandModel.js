@@ -4,7 +4,6 @@ import { useFrame } from "@react-three/fiber";
 import { useLoader } from "@react-three/fiber";
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
 import { useNavOption } from "../Context/context";
-import { Vector3 } from "three";
 import { gsap } from "gsap";
 
 export default function RobotHandModel({ setHandInPlace, handInPlace }) {
@@ -15,11 +14,6 @@ export default function RobotHandModel({ setHandInPlace, handInPlace }) {
 
   useFrame((state) => {
     if (navOption === "Bio") {
-      gsap.to(state.camera.rotation, {
-        x: -0.1,
-        duration: 1.5
-      });
-
       //hand
       let addz = 0.01;
       if (group.current.position.z > 2.3) {
@@ -30,10 +24,6 @@ export default function RobotHandModel({ setHandInPlace, handInPlace }) {
         setHandInPlace(true);
       }
     } else {
-      gsap.to(state.camera.rotation, {
-        x: 0,
-        duration: 1
-      });
       //hand
       let addz = 0.01;
       if (group.current.position.z < 3) {
