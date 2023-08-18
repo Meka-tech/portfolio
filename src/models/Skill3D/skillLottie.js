@@ -52,9 +52,9 @@ const ProjectContainer = styled.div`
     props.showProjection
       ? `rotateY(180deg) translateY(0)`
       : "rotateY(180deg) translateY(20vw)"};
-  left: 0;
+  left: 4vw;
   bottom: -5vw;
   z-index: 1;
   min-width: 40%;
-  transition: ease-in-out 0.5s all;
+  transition: ease-in-out 0.3s all;
 `;
