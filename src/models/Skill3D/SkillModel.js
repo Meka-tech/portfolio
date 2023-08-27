@@ -39,8 +39,6 @@ export const SkillModel = ({ onClickOut, faceSkills, setSkillsInView }) => {
   const [project, setProject] = useState("");
   const [spotLightOn, setSpotLightOn] = useState(false);
 
-  console.log(Projectref);
-
   useFrame((state) => {
     if (faceSkills) {
       gsap.to(ref.current.rotation, {

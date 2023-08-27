@@ -56,7 +56,11 @@ export const Nav = () => {
             }}
           />
         </NavItem>
-        <NavItem>
+        <NavItem
+          onClick={() => {
+            ShowContacts();
+          }}
+        >
           <Image img={BG} />
           {/* <h1>Contact</h1> */}
           <Typewriter
@@ -83,6 +87,10 @@ export const Nav = () => {
   const OpenSkills = () => {
     transition();
     setTimeout(() => ToggleNavOption("Skills"), [500]);
+  };
+  const ShowContacts = () => {
+    transition();
+    setTimeout(() => ToggleNavOption("Contacts"), [500]);
   };
   const GoBack = () => {
     transition();

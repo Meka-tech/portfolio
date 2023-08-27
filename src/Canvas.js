@@ -16,6 +16,7 @@ import Earth from "./models/HologramEarth";
 import { ControllerCube } from "./models/WebController";
 import { Skill2D } from "./components/nav/skills";
 import { SkillModel } from "./models/Skill3D/SkillModel";
+import { Tablet } from "./models/tablet/TabletModel";
 
 export const MainCanvas = () => {
   const [boxActive, setBoxActive] = useState(false);
@@ -88,6 +89,8 @@ export const MainCanvas = () => {
             faceSkills={cameraTurnToSkills}
             setSkillsInView={setSkillsInView}
           />
+          <Tablet />
+          {/* <OrbitControls /> */}
         </Suspense>
       </Canvas>
       <UIBody>

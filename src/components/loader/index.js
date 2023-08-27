@@ -11,7 +11,7 @@ export const Loader = ({ lable, variant = false, percent }) => {
     if (number < percent) {
       const interval = setInterval(() => {
         setNumber((prevNumber) => prevNumber + 1);
-      }, 1);
+      }, 10);
 
       return () => clearInterval(interval);
     }

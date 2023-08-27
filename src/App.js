@@ -1,32 +1,40 @@
 import "./App.css";
-import { Canvas } from "@react-three/fiber";
-import { Suspense, useRef, useState } from "react";
-import { SquareBox } from "./models/squareBox";
+
 import styled from "styled-components";
-import { Hologram } from "./components/Hologram";
-import useClickOutside from "./hooks/useClickOutside";
-import HeadModel from "./models/HeadModel";
-import { Box, OrbitControls } from "@react-three/drei";
-import { Sphere } from "./models/sphereModel";
-import { Nav } from "./components/nav";
-import { Intro } from "./components/nav/intro";
 import { HologramProvider } from "./Context/context";
 import { MainCanvas } from "./Canvas";
+import { MobileView } from "./mobile/MobileView";
+import { useState } from "react";
+import { useEffect } from "react";
 
 function App() {
-  const [boxActive, setBoxActive] = useState(false);
-  const [boxInPlace, setBoxInPlace] = useState(false);
-  const [sphereActive, setSphereActive] = useState(false);
-  const [sphereInPlace, setSphereInPlace] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
+  useEffect(() => {
+    const checkScreenWidth = () => {
+      setIsMobile(window.innerWidth <= 768); // Adjust the threshold as needed
+    };
+
+    checkScreenWidth();
+    window.addEventListener("resize", checkScreenWidth);
+
+    return () => {
+      window.removeEventListener("resize", checkScreenWidth);
+    };
+  }, []);
   return (
     <HologramProvider className="App">
-      <div className="laptopView">
-        <MainCanvas />
-      </div>
-      <div className="mobileView">
-        <h2>Not Available for Mobile at the moment</h2>
-      </div>
+      {!isMobile && (
+        <div className="laptopView">
+          <MainCanvas />
+        </div>
+      )}
+
+      {isMobile && (
+        <div className="mobileView">
+          <MobileView />
+        </div>
+      )}
     </HologramProvider>
   );
 }

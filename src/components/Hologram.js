@@ -12,7 +12,11 @@ export const Hologram = ({ onClickOut, child }) => {
   const { ToggleNavOption, navOption } = useNavOption();
 
   useEffect(() => {
-    if (navOption === "Bio" || navOption === "Skills") {
+    if (
+      navOption === "Bio" ||
+      navOption === "Skills" ||
+      navOption === "Contacts"
+    ) {
       onClickOut();
     }
   }, [navOption]);
