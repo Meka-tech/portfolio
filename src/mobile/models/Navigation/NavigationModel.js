@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import {
   Html,
   OrbitControls,
+  SpotLight,
   useAnimations,
   useGLTF,
   useScroll
@@ -9,79 +10,67 @@ import {
 import { useLayoutEffect } from "react";
 import { gsap } from "gsap";
 import { useFrame } from "@react-three/fiber";
-import { NavigationHologram } from "./NavigationHologram";
+import { NavigationHologram } from "./NaviagtionHologram/NavigationHologram";
 
 export function NavigationModel(props) {
   const groupRef = useRef();
   const { nodes, materials } = useGLTF(
-    "/3dModels/mobileModels/NavigationHand.glb"
+    "/3dModels/mobileModels/NavigationHandd.glb"
   );
 
   const tl = useRef();
   const scroll = useScroll();
 
   useFrame(() => {
-    tl.current.seek(scroll.offset);
-
     // console.log(scroll.offset);
-
-    if (scroll.offset > 0.23) {
-      gsap.to(groupRef.current.rotation, {
-        duration: 1,
-        y: -1.8
-      });
-      gsap.to(groupRef.current.position, {
-        duration: 1,
-        z: 3.5
-      });
-    } else if (scroll.offset < 0.23) {
-      gsap.to(groupRef.current.rotation, {
-        duration: 1,
-        y: 0
-      });
-
-      gsap.to(groupRef.current.position, {
-        duration: 1,
-        z: 0
-      });
-    }
-    if (scroll.offset > 0.27) {
-      gsap.to(groupRef.current.scale, {
-        duration: 3,
-        x: 0.15,
-        y: 0.15,
-        z: 0.15
-      });
-    } else {
-      gsap.to(groupRef.current.scale, {
-        duration: 1,
-        x: 0.1,
-        y: 0.1,
-        z: 0.1
-      });
-    }
-    if (scroll.offset > 0.35) {
-      gsap.to(groupRef.current.position, {
-        duration: 3,
-        z: 7
-      });
-    } else if (scroll.offset < 0.35 && scroll.offset > 0.23) {
-      gsap.to(groupRef.current.position, {
-        duration: 1,
-        z: 3.5
-      });
-    }
+    tl.current.seek(scroll.offset);
   });
 
   useLayoutEffect(() => {
     tl.current = gsap.timeline();
+
     tl.current.to(
       groupRef.current.position,
       {
-        duration: 1,
-        y: 4.8
+        duration: 0.05,
+        y: -5
       },
-      []
+      0
+    );
+    tl.current.from(
+      groupRef.current.position,
+      {
+        duration: 0.09,
+        z: -5
+      },
+      0.035
+    );
+    tl.current.from(
+      groupRef.current.rotation,
+      {
+        duration: 0.1,
+        y: 0
+      },
+      0.036
+    );
+    tl.current.to(
+      groupRef.current.position,
+      {
+        duration: 0.2,
+        z: 8
+      },
+      0.15
+    );
+
+    tl.current.to(
+      groupRef.current.scale,
+      {
+        duration: 0.2,
+        z: 0,
+        x: 0,
+        y: 0
+      },
+      0.19
     );
   }, []);
   return (
@@ -90,18 +79,17 @@ export function NavigationModel(props) {
       dispose={null}
       scale={0.1}
       ref={groupRef}
-      position={[0, -5, 0]}
-      rotation={[0, 0, 0]}
+      position={[0, -8, 4]}
+      rotation={[0, -1.4, 0]}
     >
-      {scroll.offset < 0.23 && (
-        <pointLight
-          color={"#ADD8E6"}
-          intensity={10}
-          scale={1}
-          position={[0, -2, 0]}
-        />
-      )}
+      <pointLight
+        color={"#ADD8E6"}
+        intensity={10}
+        scale={4}
+        position={[0, -2, 0]}
+      />
 
+      <NavigationHologram />
       <group position={[0, -0.022, 0]} rotation={[-Math.PI / 2, 0, 0]}>
         <mesh
           castShadow
@@ -291,4 +279,4 @@ export function NavigationModel(props) {
   );
 }
 
-useGLTF.preload("/3dModels/mobileModels/NavigationHand.glb");
+useGLTF.preload("/3dModels/mobileModels/NavigationHandd.glb");

@@ -35,6 +35,7 @@ function App() {
           <MobileView />
         </div>
       )}
+      {/* <MobileView /> */}
     </HologramProvider>
   );
 }

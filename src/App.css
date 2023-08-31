@@ -6,11 +6,7 @@
   font-family: "Bakbak One", cursive;
 }
 .mobileView {
-  display: none;
-  background-color: black;
   color: white;
-  display: flex;
-  justify-content: center;
   box-sizing: border-box;
   height: 100vh;
 }
@@ -50,26 +46,5 @@ html {
   }
   to {
     transform: rotate(360deg);
-  }
-}
-@media only screen and (max-width: 1200px) {
-  /*Tablets [601px -> 1200px]*/
-  .laptopView {
-    display: none;
-  }
-  .mobileView {
-    display: flex;
-  }
-}
-@media only screen and (max-width: 600px) {
-  /*Big smartphones [426px -> 600px]*/
-  .laptopView {
-    display: none;
-  }
-}
-@media only screen and (max-width: 425px) {
-  /*Small smartphones [325px -> 425px]*/
-  .laptopView {
-    display: none;
   }
 }

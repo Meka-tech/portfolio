@@ -5,7 +5,12 @@ import { SquareBox } from "./models/squareBox";
 import styled from "styled-components";
 import { Hologram } from "./components/Hologram";
 import HeadModel from "./models/HeadModel";
-import { OrbitControls, PerspectiveCamera, SpotLight } from "@react-three/drei";
+import {
+  Loader,
+  OrbitControls,
+  PerspectiveCamera,
+  SpotLight
+} from "@react-three/drei";
 import { Sphere } from "./models/sphereModel";
 import { Nav } from "./components/nav";
 import RobotHandModel from "./models/RobotHandModel";
@@ -93,6 +98,7 @@ export const MainCanvas = () => {
           {/* <OrbitControls /> */}
         </Suspense>
       </Canvas>
+      <Loader />
       <UIBody>
         {boxInPlace && (
           <Hologram

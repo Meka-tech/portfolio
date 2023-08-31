@@ -6,6 +6,7 @@ import "../App.css";
 const HologramContext = createContext();
 const TransitionContext = createContext();
 const NavigationContext = createContext();
+const MobileNavPositionContext = createContext();
 
 export const useHologram = () => {
   return useContext(HologramContext);
@@ -16,6 +17,10 @@ export const useTransition = () => {
 export const useNavOption = () => {
   return useContext(NavigationContext);
 };
+export const useMobileNavPosition = () => {
+  return useContext(MobileNavPositionContext);
+};
+
 export const HologramProvider = ({ children }) => {
   const [transition, setTransition] = useState(false);
 
@@ -28,11 +33,16 @@ export const HologramProvider = ({ children }) => {
   const ToggleNavOption = (option) => {
     setNavOption(option);
   };
+  const [mobileNavPosition, setMobiletNavPosition] = useState("");
   return (
     <HologramContext.Provider value={transition} className="App">
       <TransitionContext.Provider value={ToggleTransition}>
         <NavigationContext.Provider value={{ ToggleNavOption, navOption }}>
-          {children}
+          <MobileNavPositionContext.Provider
+            value={{ mobileNavPosition, setMobiletNavPosition }}
+          >
+            {children}
+          </MobileNavPositionContext.Provider>
         </NavigationContext.Provider>
       </TransitionContext.Provider>
     </HologramContext.Provider>
