@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { NavigationModel } from "./models/Navigation/NavigationModel";
 import {
@@ -23,12 +23,21 @@ import { SkillModel } from "./models/Skills/SkillModel";
 export const MobileView = () => {
   const { mobileNavPosition } = useMobileNavPosition();
   const { progress } = useProgress();
+  const [CanvasColor, setCanvasColor] = useState("rgb(255,255,255)");
+
+  useEffect(() => {
+    if (mobileNavPosition === "Skills") {
+      setCanvasColor("rgb(0,0,0)");
+    } else {
+      setCanvasColor("rgb(255,255,255)");
+    }
+  }, [mobileNavPosition]);
 
   return (
     <>
       <Canvas
         style={{
-          backgroundColor: "rgb(255,255,255)",
+          backgroundColor: CanvasColor,
           height: "100vh",
           position: "absolute",
           zIndex: 100
@@ -36,7 +45,7 @@ export const MobileView = () => {
         camera={{ position: [0, 0, 5], fov: 50, near: 0.1, far: 20 }}
       >
         {/* <OrbitControls /> */}
-        <ScrollControls pages={10} damping={10}>
+        <ScrollControls pages={10}>
           <MobileManager />
           <ScrollHtml />
           <Suspense fallback={null}>

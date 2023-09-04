@@ -13,9 +13,9 @@ export const MobileManager = () => {
       setMobiletNavPosition("");
     } else if (scrollPosition.offset > 0.035 && scrollPosition.offset < 0.15) {
       setMobiletNavPosition("Navigation");
-    } else if (scrollPosition.offset > 0.165 && scrollPosition.offset < 0.43) {
+    } else if (scrollPosition.offset > 0.165 && scrollPosition.offset < 0.5) {
       setMobiletNavPosition("Profile");
-    } else if (scrollPosition.offset > 0.5 && scrollPosition.offset < 0.7) {
+    } else if (scrollPosition.offset > 0.545 && scrollPosition.offset < 0.8) {
       setMobiletNavPosition("Skills");
     } else {
       setMobiletNavPosition("");

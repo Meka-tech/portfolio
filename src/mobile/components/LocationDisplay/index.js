@@ -16,7 +16,7 @@ export const LocationDisplay = ({ location }) => {
   }, [locationName, location, isTyping]);
 
   return (
-    <Container>
+    <Container location={locationName}>
       {isTyping && locationName !== "" && (
         <Typewriter
           autoStart={false}
@@ -40,7 +40,7 @@ export const LocationDisplay = ({ location }) => {
 const Container = styled.div`
   z-index: 2000;
   width: 100%;
-  color: black;
+  color: ${(props) => (props.location === "Skills" ? "white" : "black")};
   font-size: 3rem;
   box-sizing: border-box;
   padding: 3rem;

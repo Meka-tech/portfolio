@@ -26,7 +26,7 @@ const Container = styled(PageContainer)`
 `;
 
 const Message = styled.h2`
-  margin-top: 10%;
+  margin-top: 20%;
   text-align: center;
   font-size: 3vh;
   font-weight: 800;

@@ -15,7 +15,7 @@ export const WelcomeMessage = () => {
           .pauseFor(500)
           .deleteAll()
           .pauseFor(200)
-          .typeString("Scroll down to see more.")
+          .typeString("Scroll down to see more.It's a work in progress.")
           .pauseFor(1000)
           .changeDeleteSpeed(5)
           .deleteAll()

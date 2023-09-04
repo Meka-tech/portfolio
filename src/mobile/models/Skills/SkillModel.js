@@ -1,10 +1,12 @@
 import React from "react";
-import { Brain } from "./BrainModel";
+import { BrainModel } from "./Brain";
+import { Neurons } from "./NeuronEnvironment";
 
 export const SkillModel = () => {
   return (
     <group>
-      <Brain />
+      <BrainModel />
+      <Neurons />
     </group>
   );
 };

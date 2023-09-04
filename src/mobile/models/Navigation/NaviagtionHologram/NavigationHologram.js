@@ -11,8 +11,10 @@ export const NavigationHologram = () => {
   const { gl } = useThree();
   const [HandFocused, setHandFocused] = useState(false);
 
+  // current: gl.domElement.parentNode
+  // current: scrollData.fixed
   useFrame(() => {
-    // console.log(scrollData.offset);
+    console.log(scrollData);
     if (scrollData.offset > 0.11 && scrollData.offset < 0.13) {
       setHandFocused(true);
     } else {
@@ -25,7 +27,7 @@ export const NavigationHologram = () => {
         position={[0, 0, 0]}
         transform
         scale={[1, 1, 1]}
-        portal={{ current: scrollData.fixed }}
+        portal={{ current: gl.domElement.parentNode }}
       >
         <Container focused={HandFocused.toString()}>
           {" "}
@@ -33,10 +35,17 @@ export const NavigationHologram = () => {
           <Body>
             <Item
               onClick={() => {
-                scrollData.scroll.current = 0.165;
+                scrollData.el.scrollTop = 1600;
               }}
             >
               <h3>Profile</h3>
+            </Item>
+            <Item
+              onClick={() => {
+                scrollData.el.scrollTop = 4300;
+              }}
+            >
+              <h3>Skills</h3>
             </Item>
           </Body>
         </Container>
@@ -90,6 +99,7 @@ const Item = styled.div`
   padding: 2px 5px;
   border: 1px solid white;
   margin-top: 5px;
+  border-radius: 3px;
   h3 {
     font-size: 12px;
     text-align: left;

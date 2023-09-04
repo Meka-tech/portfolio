@@ -16,7 +16,7 @@ export const Gamedev = () => {
   return (
     <Container>
       <Body>
-        <Loader lable={"Unity"} percent={80} />
+        <Loader lable={"Unity"} percent={60} />
         <Loader lable={"C#"} percent={50} />
         <Loader lable={"Blender"} percent={65} />
         <Loader lable={"Photoshop"} percent={90} />

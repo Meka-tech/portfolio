@@ -1,9 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { PageContainer } from "../ScrollStyles";
-import { useScroll } from "@react-three/drei";
-import { useState } from "react";
-import { useFrame } from "@react-three/fiber";
 
 export const NavigationText = ({ opacity }) => {
   return (
