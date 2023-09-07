@@ -14,7 +14,7 @@ export const NavigationHologram = () => {
   // current: gl.domElement.parentNode
   // current: scrollData.fixed
   useFrame(() => {
-    console.log(scrollData);
+    // console.log(scrollData);
     if (scrollData.offset > 0.11 && scrollData.offset < 0.13) {
       setHandFocused(true);
     } else {
@@ -42,10 +42,17 @@ export const NavigationHologram = () => {
             </Item>
             <Item
               onClick={() => {
-                scrollData.el.scrollTop = 4300;
+                scrollData.el.scrollTop = 4200;
               }}
             >
               <h3>Skills</h3>
+            </Item>
+            <Item
+              onClick={() => {
+                scrollData.el.scrollTop = 6500;
+              }}
+            >
+              <h3>Projects</h3>
             </Item>
           </Body>
         </Container>

@@ -3,6 +3,8 @@ import { useGLTF, useScroll } from "@react-three/drei";
 import { useLayoutEffect } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import { gsap } from "gsap";
+import { SingularSkillModel } from "./SingularSkillModel";
+import { MultipleSkillModels } from "./MultipleSkillModels";
 
 export const Neurons = ({}) => {
   const groupRef = useRef();
@@ -70,10 +72,11 @@ export const Neurons = ({}) => {
     tl.current.to(
       groupRef.current.position,
       {
-        duration: 0.1,
+        duration: 0.001,
+        x: -30,
         z: 20
       },
-      0.79
+      0.795
     );
   }, []);
 
@@ -90,6 +93,7 @@ export const Neurons = ({}) => {
         rotation={[Math.PI / 2, 0, 0]}
         scale={0.062}
       >
+        {/* <MultipleSkillModels /> */}
         <group scale={100}>
           <group rotation={[-Math.PI / 2, 0, 0]}>
             <group rotation={[Math.PI / 2, 0, 0]} scale={0.01}>

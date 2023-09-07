@@ -40,7 +40,12 @@ export const LocationDisplay = ({ location }) => {
 const Container = styled.div`
   z-index: 2000;
   width: 100%;
-  color: ${(props) => (props.location === "Skills" ? "white" : "black")};
+  color: ${(props) =>
+    props.location === "Skills" ||
+    props.location === "Projects" ||
+    props.location === "Contact"
+      ? "white"
+      : "black"};
   font-size: 3rem;
   box-sizing: border-box;
   padding: 3rem;

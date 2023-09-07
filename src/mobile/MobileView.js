@@ -19,6 +19,8 @@ import { MobileManager } from "./components/MobileManager";
 import { BioModel } from "./models/Bio/BioModel";
 import { MobileLoadingScreen } from "./components/MobileLoadingScreen";
 import { SkillModel } from "./models/Skills/SkillModel";
+import { SingularSkillModel } from "./models/Skills/SingularSkillModel";
+import { ProjectSetupModel } from "./models/Projects/ProjectSetup";
 
 export const MobileView = () => {
   const { mobileNavPosition } = useMobileNavPosition();
@@ -45,10 +47,12 @@ export const MobileView = () => {
         camera={{ position: [0, 0, 5], fov: 50, near: 0.1, far: 20 }}
       >
         {/* <OrbitControls /> */}
+
         <ScrollControls pages={10}>
           <MobileManager />
           <ScrollHtml />
           <Suspense fallback={null}>
+            <ProjectSetupModel />
             <Scroll>
               <SkillModel />
               <ambientLight />

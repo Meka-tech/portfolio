@@ -14,8 +14,6 @@ export const BioModel = ({}) => {
   const scroll = useScroll();
   const { camera } = useThree();
 
-  useEffect(() => {});
-
   const tl = useRef();
 
   useFrame(() => {
@@ -44,23 +42,23 @@ export const BioModel = ({}) => {
 
     //1
     //camera rotates to left
-    tl.current.to(
-      camera.rotation,
-      {
-        duration: 0.12,
-        y: 1.5
-      },
-      0.178
-    );
-    //camera move to right
-    tl.current.to(
-      camera.position,
-      {
-        duration: 0.1,
-        x: 5
-      },
-      0.178
-    );
+    // tl.current.to(
+    //   camera.rotation,
+    //   {
+    //     duration: 0.12,
+    //     y: 1.5
+    //   },
+    //   0.178
+    // );
+    // //camera move to right
+    // tl.current.to(
+    //   camera.position,
+    //   {
+    //     duration: 0.1,
+    //     x: 5
+    //   },
+    //   0.178
+    // );
     //group comes forward
     tl.current.to(
       groupRef.current.position,
@@ -73,23 +71,23 @@ export const BioModel = ({}) => {
 
     //2
     //camera moves forward
-    tl.current.to(
-      camera.position,
-      {
-        duration: 0.1,
-        z: 2
-      },
-      0.301
-    );
-    //camera roates to the left
-    tl.current.to(
-      camera.rotation,
-      {
-        duration: 0.12,
-        y: 2.2
-      },
-      0.301
-    );
+    // tl.current.to(
+    //   camera.position,
+    //   {
+    //     duration: 0.1,
+    //     z: 2
+    //   },
+    //   0.301
+    // );
+    // //camera roates to the left
+    // tl.current.to(
+    //   camera.rotation,
+    //   {
+    //     duration: 0.12,
+    //     y: 2.2
+    //   },
+    //   0.301
+    // );
     //group goes away
     tl.current.to(
       groupRef.current.position,
