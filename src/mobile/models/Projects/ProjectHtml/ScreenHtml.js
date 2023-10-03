@@ -9,7 +9,7 @@ import { useFrame } from "@react-three/fiber";
 import { useEffect } from "react";
 import { useRef } from "react";
 import { useState } from "react";
-import GithubLogo from "../../../../images/githubLogo.png";
+import GithubLogo from "../../../../images/Icons/githubLogo.png";
 
 export const ScreenHtml = memo(({ Pos }) => {
   const ref = useRef(null);
