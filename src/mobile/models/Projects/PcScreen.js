@@ -5,8 +5,10 @@ import { useFrame, useThree } from "@react-three/fiber";
 import { useEffect } from "react";
 import { useRef } from "react";
 import { ScreenHtml } from "./ProjectHtml/ScreenHtml";
+import { tab } from "../../../deviceStyle";
+import { ContactHtml } from "../contacts/contactHtml";
 
-export const PCScreen = () => {
+export const PCScreen = ({ PCSliderPos }) => {
   const { gl } = useThree();
   const scroll = useScroll();
   const groupRef = useRef();
@@ -16,12 +18,13 @@ export const PCScreen = () => {
   // current: scroll.fixed
   useFrame(() => {
     // console.log(scroll.offset);
-    if (scroll.offset > 0.905 && scroll.offset < 0.96) {
+    if (scroll.offset > 0.82) {
       setScreenFocused(true);
     } else {
       setScreenFocused(false);
     }
   });
+
   return (
     <group
       ref={groupRef}
@@ -38,7 +41,7 @@ export const PCScreen = () => {
           scale={0.5}
         >
           <Container focused={screenFocused.toString()}>
-            <ScreenHtml />
+            <ScreenHtml Pos={PCSliderPos} />
           </Container>
         </Html>
       </mesh>
@@ -51,10 +54,13 @@ const Container = styled.div`
   background-color: black;
   width: 330px;
   height: 185px;
-  overflow-y: scroll;
+  overflow: hidden;
   box-sizing: border-box;
   padding: 10px 15px;
   transform: ${(props) =>
     props.focused === "true" ? "scaleX(2) scalxY(2)" : "scaleX(0)"};
   transition: 0.1s ease;
+  ${tab({
+    overflow: "auto"
+  })}
 `;

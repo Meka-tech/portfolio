@@ -1,16 +1,14 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
-import { WelcomeMessage } from "./welcomeMessage";
 import { ScrollLottie } from "./lottie";
 import { PageContainer } from "../ScrollStyles";
+import { tab } from "../../../../deviceStyle";
 
 export const WelcomeComponent = ({ opacity }) => {
   return (
     <Container opacity={opacity}>
-      <Message>
-        <WelcomeMessage />
-      </Message>
       <ScrollLottie />
+      <Text>Scroll to Explore.</Text>
     </Container>
   );
 };
@@ -23,12 +21,17 @@ const Container = styled(PageContainer)`
   color: black;
   padding: 2rem 3rem;
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
-const Message = styled.h2`
-  margin-top: 20%;
+const Text = styled.h2`
   text-align: center;
-  font-size: 3vh;
+  font-size: 45px;
   font-weight: 800;
-  height: 50vh;
+  ${tab({
+    width: "20%",
+    fontSize: "60px"
+  })}
 `;

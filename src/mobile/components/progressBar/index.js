@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useScroll } from "@react-three/drei";
+import { tab } from "../../../deviceStyle";
 
 export const ProgressBar = ({ percent, offsetEnter, offsetLeave }) => {
   const [number, setNumber] = useState(0);
@@ -42,6 +43,9 @@ export const ProgressBar = ({ percent, offsetEnter, offsetLeave }) => {
 const Container = styled.div`
   color: white;
   margin-top: 0.5vh;
+  ${tab({
+    marginTop: "10px"
+  })}
 `;
 
 const Text = styled.h2`
@@ -49,12 +53,15 @@ const Text = styled.h2`
   padding: 0;
   font-size: 20px;
   text-align: center;
-  margin-bottom: 1vh;
+  margin-bottom: 8px;
   font-weight: 500;
+  ${tab({
+    marginBottom: "5px"
+  })}
 `;
 const Bar = styled.div`
   width: 100%;
-  height: 0.5vh;
+  height: 5px;
   background-color: black;
   border-radius: 8px;
 `;
@@ -68,11 +75,11 @@ const Filler = styled.div`
 `;
 const FillerEnd = styled.div`
   position: absolute;
-  right: -1.5vh;
-  top: -1.2vh;
+  right: -10px;
+  top: -10px;
   border-radius: 50%;
-  width: 3vh;
-  height: 3vh;
+  width: 25px;
+  height: 25px;
   background-color: rgba(255, 255, 255, 0.3);
   display: flex;
   align-items: center;
@@ -80,7 +87,7 @@ const FillerEnd = styled.div`
 `;
 const FillerCore = styled.div`
   border-radius: 50%;
-  width: 1vh;
-  height: 1vh;
+  width: 10px;
+  height: 10px;
   background-color: rgba(255, 255, 255, 1);
 `;

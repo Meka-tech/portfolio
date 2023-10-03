@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { tab } from "../../../deviceStyle";
 
 export const PageContainer = styled.div`
   position: relative;

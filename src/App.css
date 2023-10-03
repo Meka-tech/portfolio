@@ -8,7 +8,8 @@
 .mobileView {
   color: white;
   box-sizing: border-box;
-  height: 100vh;
+  height: 80vh;
+  overflow: hidden;
 }
 
 .App-logo {
@@ -23,6 +24,10 @@
 }
 html {
   font-size: 10px;
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  left: 0;
 }
 
 .App-header {
@@ -47,4 +52,25 @@ html {
   to {
     transform: rotate(360deg);
   }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(170, 170, 170);
+  border-radius: 50px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(170, 170, 170);
 }

@@ -26,19 +26,19 @@ export const Neurons = ({}) => {
       groupRef.current.position,
       {
         duration: 0.001,
-        x: -25
+        x: -30
       },
       0.533
     );
     //move model down
-    tl.current.to(
-      groupRef.current.position,
-      {
-        duration: 1.45,
-        y: -60
-      },
-      0.54
-    );
+    // tl.current.to(
+    //   groupRef.current.position,
+    //   {
+    //     duration: 1.45,
+    //     y: -60
+    //   },
+    //   0.54
+    // );
 
     ////rotate to left
     tl.current.to(
@@ -73,7 +73,7 @@ export const Neurons = ({}) => {
       groupRef.current.position,
       {
         duration: 0.001,
-        x: -30,
+        x: 20,
         z: 20
       },
       0.795
@@ -84,7 +84,7 @@ export const Neurons = ({}) => {
     <group
       ref={groupRef}
       dispose={null}
-      position={[3.5, -24.5, 3]}
+      position={[3.5, 0, 3]}
       rotation={[0, 1, 0]}
       scale={1.2}
     >
@@ -93,7 +93,6 @@ export const Neurons = ({}) => {
         rotation={[Math.PI / 2, 0, 0]}
         scale={0.062}
       >
-        {/* <MultipleSkillModels /> */}
         <group scale={100}>
           <group rotation={[-Math.PI / 2, 0, 0]}>
             <group rotation={[Math.PI / 2, 0, 0]} scale={0.01}>

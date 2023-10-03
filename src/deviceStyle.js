@@ -1,19 +1,37 @@
-const size = {
-  mobileS: "320px",
-  mobileM: "375px",
-  mobileL: "425px",
-  tablet: "768px",
-  laptop: "1024px",
-  laptopL: "1440px",
-  desktop: "2560px"
+import { css } from "styled-components";
+
+export const SmallMobile = (props) => {
+  return css`
+    @media only screen and (min-width: 0px) and (max-width: 500px) {
+      ${props}
+    }
+  `;
 };
-export const device = {
-  mobileS: `(max-width: ${size.mobileS})`,
-  mobileM: `(max-width: ${size.mobileM})`,
-  mobileL: `(max-width: ${size.mobileL})`,
-  tablet: `(max-width: ${size.tablet})`,
-  laptop: `(max-width: ${size.laptop})`,
-  laptopL: `(max-width: ${size.laptopL})`,
-  desktop: `(max-width: ${size.desktop})`,
-  desktopL: `(max-width: ${size.desktop})`
+export const mobile = (props) => {
+  return css`
+    @media only screen and (min-width: 500px) {
+      ${props}
+    }
+  `;
+};
+export const tab = (props) => {
+  return css`
+    @media only screen and (min-width: 768px) {
+      ${props}
+    }
+  `;
+};
+export const LargeScreen = (props) => {
+  return css`
+    @media only screen and (min-width: 1400px) {
+      ${props}
+    }
+  `;
+};
+export const fourK = (props) => {
+  return css`
+    @media only screen and (min-width: 1536px) {
+      ${props}
+    }
+  `;
 };

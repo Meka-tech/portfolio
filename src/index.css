@@ -10,3 +10,7 @@ code {
   font-family: "Orbitron", sans-serif;
   font-family: "Poppins", sans-serif;
 }
+
+:root {
+  color-scheme: only light;
+}

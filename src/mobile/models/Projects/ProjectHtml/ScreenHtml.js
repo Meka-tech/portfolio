@@ -1,13 +1,27 @@
-import React from "react";
+import React, { memo } from "react";
 import styled from "styled-components";
 import { BannerLottie, ScrollLottie } from "./ProjectLotties";
 import { ProjectItem } from "./ProjectItem";
 import Bloxx from "../../../../images/projectLogos/bloxx logo.png";
 import NC from "../../../../images/projectLogos/naija_charades.jpg";
+import SC from "../../../../images/projectLogos/steadCare.ico";
+import { useFrame } from "@react-three/fiber";
+import { useEffect } from "react";
+import { useRef } from "react";
+import { useState } from "react";
+import GithubLogo from "../../../../images/githubLogo.png";
 
-export const ScreenHtml = () => {
+export const ScreenHtml = memo(({ Pos }) => {
+  const ref = useRef(null);
+  const [scrollPos, setScrollPos] = useState(0);
+
+  useEffect(() => {
+    setScrollPos(Pos);
+    // console.log(Pos);
+  }, [Pos]);
+
   return (
-    <Container>
+    <Container ref={ref} top={scrollPos}>
       <Top>
         <div>
           <Header>PROJECTS</Header>
@@ -17,12 +31,12 @@ export const ScreenHtml = () => {
       </Top>
       <Body>
         <ProjectItem
-          name={"BLOXX"}
+          name={"SteadCare"}
           description={
-            "Bloxx is an Android game made with Unity and C# in 2020 and published to the Android Playstore in 2021. No updates have been made since then."
+            "Steadcare is a website where doctors can provide medical care for patients through video call made with react js"
           }
-          link={`https://play.google.com/store/apps/details?id=com.Meka.Bloxx`}
-          logo={Bloxx}
+          link={`http://steadcare.care/`}
+          logo={SC}
         />
         <ProjectItem
           name={"N.Charades"}
@@ -33,21 +47,41 @@ export const ScreenHtml = () => {
           logo={NC}
         />
         <ProjectItem
-          name={"Indoor Navigation using Augmented Reality"}
+          name={"BLOXX"}
           description={
-            "This is an android app developed using Unity,Blender and a lidar sensor. Presented as my final project in a B.Eng degree"
+            "Bloxx is an Android game made with Unity and C# in 2020 and published to the Android Playstore in 2021. No updates have been made since then."
+          }
+          link={`https://play.google.com/store/apps/details?id=com.Meka.Bloxx`}
+          logo={Bloxx}
+        />
+        <ProjectItem
+          name={"Indoor Navigation using AR"}
+          description={
+            "This is an android Augmented Reality app developed using Unity,Blender and a lidar sensor. Presented as my final project for a B.Eng degree"
           }
           link={`https://play.google.com/store/apps/details?id=com.naija_charades`}
+          variant={true}
         />
       </Body>
+      <Footer>
+        <GitLink
+          href="https://github.com/Meka-tech"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <GitImg src={GithubLogo} alt="github log" />
+        </GitLink>
+      </Footer>
     </Container>
   );
-};
+});
 
 const Container = styled.div`
-  height: 1000px;
+  padding-bottom: 50px;
   width: 100%;
   color: white;
+  margin-top: ${(props) => `-${props.top}%`};
+  transition: all ease 0.1s;
 `;
 const Top = styled.div`
   display: flex;
@@ -69,4 +103,22 @@ const Body = styled.div`
   display: grid;
   grid-template-columns: 49% 49%;
   justify-content: space-between;
+`;
+
+const Footer = styled.div`
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+`;
+const GitLink = styled.a`
+  font-size: 16px;
+  text-decoration: none;
+  color: white;
+`;
+
+const GitImg = styled.img`
+  width: 35px;
+  height: auto;
+  object-fit: contain;
 `;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import styled from "styled-components";
 import { PageContainer } from "../ScrollStyles";
 import { useScroll } from "@react-three/drei";
@@ -14,6 +14,7 @@ import CIcon from "../../../../images/skillImages/C-sharp.png";
 import UnityIcon from "../../../../images/skillImages/unity.png";
 import BlenderIcon from "../../../../images/skillImages/blender.png";
 import PhotoshopIcon from "../../../../images/skillImages/photoshop.png";
+import { tab } from "../../../../deviceStyle";
 
 export const SkillText = ({ opacity }) => {
   const scroll = useScroll();
@@ -117,6 +118,9 @@ const Container = styled(PageContainer)`
   /* background-color: red;
   opacity: 0.3; */
   padding: 1vh;
+  ${tab({
+    padding: "0 150px"
+  })}
 `;
 const Intro = styled.div`
   color: black;

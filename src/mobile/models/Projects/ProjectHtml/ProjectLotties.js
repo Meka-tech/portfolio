@@ -36,7 +36,7 @@ const ScrollContainer = styled.div`
 `;
 const ClickContainer = styled.div`
   width: 40px;
-  bottom: -20px;
+  bottom: -10px;
   left: 10px;
   position: absolute;
 `;

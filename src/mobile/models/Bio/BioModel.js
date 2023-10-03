@@ -31,35 +31,7 @@ export const BioModel = ({}) => {
       },
       0.134
     );
-    tl.current.to(
-      groupRef.current.position,
-      {
-        duration: 1.2,
-        y: -35
-      },
-      0.16
-    );
 
-    //1
-    //camera rotates to left
-    // tl.current.to(
-    //   camera.rotation,
-    //   {
-    //     duration: 0.12,
-    //     y: 1.5
-    //   },
-    //   0.178
-    // );
-    // //camera move to right
-    // tl.current.to(
-    //   camera.position,
-    //   {
-    //     duration: 0.1,
-    //     x: 5
-    //   },
-    //   0.178
-    // );
-    //group comes forward
     tl.current.to(
       groupRef.current.position,
       {
@@ -69,38 +41,18 @@ export const BioModel = ({}) => {
       0.178
     );
 
-    //2
-    //camera moves forward
-    // tl.current.to(
-    //   camera.position,
-    //   {
-    //     duration: 0.1,
-    //     z: 2
-    //   },
-    //   0.301
-    // );
-    // //camera roates to the left
-    // tl.current.to(
-    //   camera.rotation,
-    //   {
-    //     duration: 0.12,
-    //     y: 2.2
-    //   },
-    //   0.301
-    // );
-    //group goes away
     tl.current.to(
       groupRef.current.position,
       {
         duration: 0.05,
-        z: 10
+        z: 30
       },
       0.39
     );
   }, []);
 
   return (
-    <group ref={groupRef} dispose={null} position={[-0.5, -9, -2]} scale={1}>
+    <group ref={groupRef} dispose={null} position={[-0.45, -1.8, -2]} scale={1}>
       <mesh
         castShadow
         receiveShadow
@@ -117,13 +69,13 @@ export const BioModel = ({}) => {
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Mesh001.geometry}
+          geometry={nodes.mesh_1.geometry}
           material={materials.lambert1}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Mesh001_1.geometry}
+          geometry={nodes.mesh_1_1.geometry}
           material={materials["niet_klaar_2:NIET_FINISHED_UV2:lambert3"]}
         />
       </group>
@@ -144,19 +96,19 @@ export const BioModel = ({}) => {
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Cube001.geometry}
+          geometry={nodes.mesh_3.geometry}
           material={materials.Plastico}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Cube001_1.geometry}
+          geometry={nodes.mesh_3_1.geometry}
           material={materials["Plastico 2"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Cube001_2.geometry}
+          geometry={nodes.mesh_3_2.geometry}
           material={materials.Pad}
         />
       </group>
@@ -177,25 +129,25 @@ export const BioModel = ({}) => {
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Cube002.geometry}
+          geometry={nodes.mesh_5.geometry}
           material={materials.Plastico}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Cube002_1.geometry}
+          geometry={nodes.mesh_5_1.geometry}
           material={materials.Pad}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Cube002_2.geometry}
+          geometry={nodes.mesh_5_2.geometry}
           material={materials["Pantalla Negro"]}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Cube002_3.geometry}
+          geometry={nodes.mesh_5_3.geometry}
           material={materials.Pantalla}
         />
       </group>

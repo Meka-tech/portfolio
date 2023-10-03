@@ -13,6 +13,7 @@ export const NavigationHologram = () => {
 
   // current: gl.domElement.parentNode
   // current: scrollData.fixed
+
   useFrame(() => {
     // console.log(scrollData);
     if (scrollData.offset > 0.11 && scrollData.offset < 0.13) {
@@ -21,6 +22,9 @@ export const NavigationHologram = () => {
       setHandFocused(false);
     }
   });
+  const ScrollHeight = scrollData.el.scrollTop;
+  const ScrollTopNative = 9284 / ScrollHeight;
+
   return (
     <group rotation={[0, 1.3, 0]} position={[-1, 1.5, 0]}>
       <Html
@@ -31,28 +35,35 @@ export const NavigationHologram = () => {
       >
         <Container focused={HandFocused.toString()}>
           {" "}
-          <Header>Explore</Header>
+          <Header>Jump to Section</Header>
           <Body>
             <Item
               onClick={() => {
-                scrollData.el.scrollTop = 1600;
+                scrollData.el.scrollTop = scrollData.el.scrollTop * 1.7;
               }}
             >
               <h3>Profile</h3>
             </Item>
             <Item
               onClick={() => {
-                scrollData.el.scrollTop = 4200;
+                scrollData.el.scrollTop = scrollData.el.scrollTop * 5;
               }}
             >
               <h3>Skills</h3>
             </Item>
             <Item
               onClick={() => {
-                scrollData.el.scrollTop = 6500;
+                scrollData.el.scrollTop = scrollData.el.scrollTop * 7.5;
               }}
             >
               <h3>Projects</h3>
+            </Item>
+            <Item
+              onClick={() => {
+                scrollData.el.scrollTop = scrollData.el.scrollTop * 8.3;
+              }}
+            >
+              <h3>Contacts</h3>
             </Item>
           </Body>
         </Container>
@@ -83,10 +94,11 @@ const Container = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  color: white;
 `;
 const Header = styled.h2`
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   text-align: center;
   margin: 0;
   padding: 0;
@@ -96,19 +108,20 @@ const Body = styled.div`
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  padding-top: 8px;
+  padding-top: 2px;
 `;
 
 const Item = styled.div`
   box-sizing: border-box;
   width: 100%;
   height: fit-content;
-  padding: 2px 5px;
+  padding: 2px 4px;
   border: 1px solid white;
   margin-top: 5px;
   border-radius: 3px;
+  cursor: pointer;
   h3 {
-    font-size: 12px;
+    font-size: 10px;
     text-align: left;
     font-weight: 500;
     padding: 0;

@@ -42,8 +42,7 @@ export const BrainModel = () => {
       {
         duration: 0.1,
         x: 10,
-        z: -2,
-        y: -27
+        z: -1.5
       },
       0.505
     );
@@ -53,7 +52,7 @@ export const BrainModel = () => {
       dispose={null}
       scale={0.45}
       ref={groupRef}
-      position={[0, -24, 5.8]}
+      position={[-0.5, -1.5, 5.8]}
       rotation={[0, 2, 0]}
     >
       <group scale={1.081}>
