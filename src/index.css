@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+  font-family: "Orbitron", sans-serif;
+  font-family: "Poppins", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: "Orbitron", sans-serif;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  color-scheme: only light;
+}
