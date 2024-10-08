@@ -4,6 +4,7 @@ import { BannerLottie, ScrollLottie } from "./ProjectLotties";
 import { ProjectItem } from "./ProjectItem";
 import Bloxx from "../../../../images/projectLogos/bloxx logo.png";
 import NC from "../../../../images/projectLogos/naija_charades.jpg";
+import IgodoLogo from "../../../../images/projectLogos/igodo.png";
 import SC from "../../../../images/projectLogos/steadCare.ico";
 import { useFrame } from "@react-three/fiber";
 import { useEffect } from "react";
@@ -44,14 +45,14 @@ export const ScreenHtml = memo(({ Pos }) => {
           link={`https://play.google.com/store/apps/details?id=com.naija_charades`}
           logo={NC}
         />
-        {/* <ProjectItem
-          name={"BLOXX"}
+        <ProjectItem
+          name={"IGODO"}
           description={
-            "Bloxx is an Android game made with Unity and C# in 2020 and published to the Android Playstore in 2021. No updates have been made since then."
+            "Introducing Igodo App: Revitalize Your Ride, Right at Your Doorstep! Igodo is a revolutionary app designed to bring luxury car detailing to your doorsteps."
           }
-          link={`https://play.google.com/store/apps/details?id=com.Meka.Bloxx`}
-          logo={Bloxx}
-        /> */}
+          link={`https://play.google.com/store/apps/details?id=com.igodo.net.app&pcampaignid=web_share`}
+          logo={IgodoLogo}
+        />
         <ProjectItem
           name={"Indoor Navigation using AR"}
           description={
