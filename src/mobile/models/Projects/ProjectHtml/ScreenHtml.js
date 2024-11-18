@@ -32,6 +32,15 @@ export const ScreenHtml = memo(({ Pos }) => {
       </Top>
       <Body>
         <ProjectItem
+          name={"Yield Staking DAPP"}
+          description={
+            "A Yield staking decentralized application (DAPP) where you stake a (fake) tether token and get airdropped with my own (also fake) Reward Token after some time on the ethereum chain. Writted Using Solidity for the smart contracts and react js for frontend."
+          }
+          link={`https://github.com/Meka-tech/defi-app`}
+          logo={GithubLogo}
+          variant
+        />
+        <ProjectItem
           name={"Synkd"}
           description={`This is a full stack project made with Next js and node js. Using socket for real time commuincation between users,  redux for state management. Offers a real-time chat system and an algorithm for matching users with similar interests.`}
           link={`https://synkd.netlify.app`}
@@ -53,6 +62,7 @@ export const ScreenHtml = memo(({ Pos }) => {
           link={`https://play.google.com/store/apps/details?id=com.igodo.net.app&pcampaignid=web_share`}
           logo={IgodoLogo}
         />
+
         <ProjectItem
           name={"Indoor Navigation using AR"}
           description={
