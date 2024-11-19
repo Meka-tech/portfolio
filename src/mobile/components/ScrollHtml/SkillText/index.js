@@ -11,6 +11,7 @@ import ReactIcon from "../../../../images/skillImages/react.png";
 import ReactNativeIcon from "../../../../images/skillImages/reactNative.png";
 import NextIcon from "../../../../images/skillImages/Next.png";
 import CIcon from "../../../../images/skillImages/C-sharp.png";
+import SolidityIcon from "../../../../images/skillImages/solidity.png";
 import UnityIcon from "../../../../images/skillImages/unity.png";
 import BlenderIcon from "../../../../images/skillImages/blender.png";
 import PhotoshopIcon from "../../../../images/skillImages/photoshop.png";
@@ -85,11 +86,19 @@ export const SkillText = ({ opacity }) => {
           name={"Node js"}
           percent={50}
         />
-        <SkillLoader
+
+        {/* <SkillLoader
           logo={UnityIcon}
           offsetEnter={0.681}
           offsetLeave={0.76}
           name={"Unity"}
+          percent={60}
+        /> */}
+        <SkillLoader
+          logo={SolidityIcon}
+          offsetEnter={0.681}
+          offsetLeave={0.76}
+          name={"Solidity"}
           percent={60}
         />
         <SkillLoader
@@ -101,11 +110,11 @@ export const SkillText = ({ opacity }) => {
         />
         <SkillLoader
           variant={true}
-          logo={PhotoshopIcon}
+          logo={UnityIcon}
           offsetEnter={0.718}
           offsetLeave={0.8}
-          name={"Photoshop"}
-          percent={90}
+          name={"Unity"}
+          percent={60}
         />
       </Development>
     </Container>

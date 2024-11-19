@@ -37,7 +37,7 @@ export const ScreenHtml = memo(({ Pos }) => {
             "A Yield staking decentralized application (DAPP) where you stake a (fake) tether token and get airdropped with my own (also fake) Reward Token after some time on the ethereum chain. Writted Using Solidity for the smart contracts and react js for frontend."
           }
           link={`https://github.com/Meka-tech/defi-app`}
-          logo={GithubLogo}
+          // logo={GithubLogo}
           variant
         />
         <ProjectItem

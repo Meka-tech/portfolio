@@ -43,8 +43,9 @@ export const ProfileText = ({ opacity }) => {
       <FirstText view={firstTextInView.toString()}>
         <h2>
           I am Onyeji Nnaemeka, a passionate software developer with a vision
-          for crafting immersive experiences. With my imagination, a flare for
-          creation and coding, I embark on a journey to bring code to life.
+          for crafting immersive experiences in both traditional and Web3
+          realms. With my imagination, a flare for creation and coding, I embark
+          on a journey to bring code to life.
         </h2>
       </FirstText>
       <SecondText view={SecondTextInView.toString()}>
