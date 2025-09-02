@@ -32,56 +32,6 @@ export const ProjectSetupModel = ({ PcSliderPos }) => {
       },
       0.801
     );
-
-    // tl.current.to(
-    //   groupRef.current.position,
-    //   {
-    //     duration: 0.02,
-    //     y: -1.5,
-    //     z: -2
-    //   },
-    //   0.81
-    // );
-    // tl.current.to(
-    //   groupRef.current.position,
-    //   {
-    //     duration: 0.01,
-    //     x: 1.3
-    //   },
-    //   0.819
-    // );
-
-    // //zoom to screen
-
-    // tl.current.to(
-    //   groupRef.current.position,
-    //   {
-    //     duration: 0.05,
-    //     y: -1.8,
-    //     z: 1.6
-    //   },
-    //   0.87
-    // );
-    // /// turn to phone
-    // tl.current.to(
-    //   groupRef.current.rotation,
-    //   {
-    //     duration: 0.1,
-    //     y: -1.8,
-    //     x: 1.8
-    //   },
-    //   0.96
-    // );
-    // tl.current.to(
-    //   groupRef.current.position,
-    //   {
-    //     duration: 0.1,
-    //     x: 3.6,
-    //     y: 1,
-    //     z: 4
-    //   },
-    //   0.96
-    // );
   }, []);
 
   return (

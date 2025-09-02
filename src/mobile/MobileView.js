@@ -49,8 +49,6 @@ export const MobileView = () => {
       setCanvasColor("rgb(255,255,255)");
     }
   }, [mobileNavPosition]);
-
-  // const sheet = getProject("Spin Round").sheet("Scene");
   const sheet = getProject("Spin Round", { state: CameraAnimation }).sheet(
     "Scene"
   );
@@ -134,7 +132,6 @@ const Scene = ({ PcSliderPos, setShowSlider }) => {
         <BioModel />
         <ambientLight />
         <SkillModel />
-
         <Scroll>
           <NavigationModel />
         </Scroll>

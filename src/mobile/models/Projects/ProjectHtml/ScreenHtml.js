@@ -5,6 +5,7 @@ import { ProjectItem } from "./ProjectItem";
 import Bloxx from "../../../../images/projectLogos/bloxx logo.png";
 import NC from "../../../../images/projectLogos/naija_charades.jpg";
 import IgodoLogo from "../../../../images/projectLogos/igodo.png";
+import HavenLogo from "../../../../images/projectLogos/haven-logo.png";
 import SC from "../../../../images/projectLogos/steadCare.ico";
 import { useFrame } from "@react-three/fiber";
 import { useEffect } from "react";
@@ -31,6 +32,14 @@ export const ScreenHtml = memo(({ Pos }) => {
         <BannerLottie />
       </Top>
       <Body>
+        <ProjectItem
+          name={"Haven"}
+          description={
+            "An app built with expo react native and typescript which helps you share your time and skills with your community. live on the app store."
+          }
+          link={`https://apps.apple.com/ng/app/haven-give-take-trade/id6746972036`}
+          logo={HavenLogo}
+        />
         <ProjectItem
           name={"Yield Staking DAPP"}
           description={

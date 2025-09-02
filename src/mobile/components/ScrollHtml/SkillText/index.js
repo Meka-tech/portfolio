@@ -13,6 +13,7 @@ import NextIcon from "../../../../images/skillImages/Next.png";
 import CIcon from "../../../../images/skillImages/C-sharp.png";
 import SolidityIcon from "../../../../images/skillImages/solidity.png";
 import UnityIcon from "../../../../images/skillImages/unity.png";
+import SolanaIcon from "../../../../images/skillImages/solana.jpg";
 import BlenderIcon from "../../../../images/skillImages/blender.png";
 import PhotoshopIcon from "../../../../images/skillImages/photoshop.png";
 import NodeIcon from "../../../../images/skillImages/nodeIcon.png";
@@ -48,28 +49,28 @@ export const SkillText = ({ opacity }) => {
           offsetEnter={0.58}
           offsetLeave={0.64}
           name={"Javascript"}
-          percent={85}
+          percent={95}
         />
         <SkillLoader
           logo={TSLogo}
           offsetEnter={0.595}
           offsetLeave={0.66}
           name={"Typescript"}
-          percent={80}
+          percent={90}
         />
         <SkillLoader
           logo={ReactIcon}
           offsetEnter={0.61}
           offsetLeave={0.68}
           name={"React js/ts"}
-          percent={90}
+          percent={85}
         />
         <SkillLoader
           logo={ReactNativeIcon}
           offsetEnter={0.627}
           offsetLeave={0.7}
           name={"React Native"}
-          percent={70}
+          percent={90}
         />
         <SkillLoader
           variant={true}
@@ -77,14 +78,14 @@ export const SkillText = ({ opacity }) => {
           offsetEnter={0.645}
           offsetLeave={0.72}
           name={"Next js"}
-          percent={60}
+          percent={80}
         />
         <SkillLoader
           logo={NodeIcon}
           offsetEnter={0.662}
           offsetLeave={0.74}
           name={"Node js"}
-          percent={50}
+          percent={70}
         />
 
         {/* <SkillLoader
@@ -102,11 +103,11 @@ export const SkillText = ({ opacity }) => {
           percent={60}
         />
         <SkillLoader
-          logo={BlenderIcon}
+          logo={SolanaIcon}
           offsetEnter={0.7}
           offsetLeave={0.78}
-          name={"Blender"}
-          percent={65}
+          name={"Solana (Anchor)"}
+          percent={85}
         />
         <SkillLoader
           variant={true}

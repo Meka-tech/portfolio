@@ -38,7 +38,7 @@ export const WhatsappLottie = () => {
 export const LinkedLottie = () => {
   return (
     <a
-      href="https://www.linkedin.com/in/nnaemeka-onyeji-78a141256"
+      href="https://www.linkedin.com/in/samuel-onyeji-78a141256/"
       target="_blank"
       rel="noreferrer"
     >

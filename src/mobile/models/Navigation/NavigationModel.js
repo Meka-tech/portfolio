@@ -22,7 +22,6 @@ export function NavigationModel({}) {
   const scroll = useScroll();
 
   useFrame(() => {
-    // console.log(scroll.offset);
     tl.current.seek(scroll.offset);
   });
 
